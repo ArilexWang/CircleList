@@ -48,7 +48,7 @@ int CircleList::Length(){
 }
 
 CircleListNode* CircleList::Located(int index){
-    if(index <= 0 || index > this->Length()) return NULL;
+    if(index <= 0 || index > Length()) return NULL;
     CircleListNode* current = first;
     int k = 1;
     while (current != NULL && k < index) {
@@ -68,6 +68,14 @@ void CircleList::destroy(){
     }
     delete head;
     length = 0;
+}
+
+void CircleList::setHead(CircleListNode *p){
+    first = p;
+}
+
+CircleListNode* CircleList::getHead()const {
+    return first;
 }
 
 CircleList::~CircleList(){

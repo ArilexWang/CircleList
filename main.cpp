@@ -12,6 +12,7 @@ using namespace std;
 
 void Josephus(CircleList& Js,int n,int s,int m,int k){
     CircleListNode* current = Js.Located(s);
+    CircleListNode* first = Js.Located(1);
     CircleListNode* pre = NULL;
     for(int i = 0;i < n-k;i++){
         for(int j = 1;j < m;j++){
@@ -20,10 +21,14 @@ void Josephus(CircleList& Js,int n,int s,int m,int k){
         }
         cout << "第" << i+1 << "个死者的位置是：" << current->number << endl;
         pre->next = current->next;
+        if (current == Js.getHead()) {
+            first = current->next;
+        }
+        Js.setHead(first);
         delete current;
         current = pre->next;
     }
-    cout << "最后剩下：" << Js.Length() << "人" << endl;
+    cout << "最后剩下：" << k << "人" << endl;
     cout << "剩于的生者位置为：";
     current = Js.Located(1);
     for (int i = 0; i < Js.Length(); i++) {
