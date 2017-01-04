@@ -34,7 +34,7 @@ void CircleList::origin(int total){
     last->next = first;
 }
 
-int CircleList::Length(){
+int CircleList::Length(){       
     CircleListNode* head,*current;
     head = first;
     current = head->next;

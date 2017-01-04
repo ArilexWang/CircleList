@@ -18,7 +18,6 @@ class CircleListNode{
     
     CircleListNode();
     CircleListNode(int number):number(number){}
-    //~CircleListNode();
     
     int number;
     CircleListNode* next;

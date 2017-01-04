@@ -20,15 +20,15 @@ public:
     CircleList() {first = new CircleListNode();}
     ~CircleList();
     
-    void origin(int total);
+    void origin(int total);                    //生成环链
     bool IsEmpty(){return first->next == first? true:false;}
     
-    CircleListNode* getHead() const;
-    void setHead(CircleListNode* p);
+    CircleListNode* getHead() const;        //返回第一个节点
+    void setHead(CircleListNode* p);        //设置第一个节点
     
-    int Length();
-    CircleListNode* Located(int i);
-    void destroy();
+    int Length();                           //返回链表长度
+    CircleListNode* Located(int i);         //定位
+    void destroy();                         //清空链表
 };
 
 #endif /* CircleList_hpp */

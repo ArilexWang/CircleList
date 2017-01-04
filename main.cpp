@@ -11,21 +11,21 @@
 using namespace std;
 
 void Josephus(CircleList& Js,int n,int s,int m,int k){
-    CircleListNode* current = Js.Located(s);
-    CircleListNode* first = Js.Located(1);
-    CircleListNode* pre = NULL;
-    for(int i = 0;i < n-k;i++){
-        for(int j = 1;j < m;j++){
+    CircleListNode* current = Js.Located(s);    //指向游戏开始位置
+    CircleListNode* first = Js.getHead();       //指向头结点
+    CircleListNode* pre = NULL;                 //指向当前节点前一节点
+    for(int i = 0;i < n-k;i++){                 //外层循环次数为死亡人数
+        for(int j = 1;j < m;j++){               //内层循环数为死亡数字
             pre = current;
             current = current->next;
         }
         cout << "第" << i+1 << "个死者的位置是：" << current->number << endl;
         pre->next = current->next;
-        if (current == Js.getHead()) {      //如果检测到要删除的节点为头结点
-            first = current->next;          //将当前节点的下一节点记录
+        if (current == Js.getHead()) {          //如果检测到要删除的节点为头结点
+            first = current->next;              //将当前节点的下一节点记录
         }
-        Js.setHead(first);                  //移动头结点至前面记录的节点
-        delete current;
+        Js.setHead(first);                      //移动头结点至前面记录的节点
+        delete current;                         //删除移出链表节点
         current = pre->next;
     }
     cout << "最后剩下：" << k << "人" << endl;
