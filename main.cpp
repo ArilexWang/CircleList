@@ -21,10 +21,10 @@ void Josephus(CircleList& Js,int n,int s,int m,int k){
         }
         cout << "第" << i+1 << "个死者的位置是：" << current->number << endl;
         pre->next = current->next;
-        if (current == Js.getHead()) {
-            first = current->next;
+        if (current == Js.getHead()) {      //如果检测到要删除的节点为头结点
+            first = current->next;          //将当前节点的下一节点记录
         }
-        Js.setHead(first);
+        Js.setHead(first);                  //移动头结点至前面记录的节点
         delete current;
         current = pre->next;
     }
